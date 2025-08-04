@@ -53,8 +53,13 @@ export const register = async (req, res) => {
 
     } catch (error) {
         console.error("Error creating user:",error);
-        res.status(500).json({
-            error: "Error creating user"
+        if (error.code === 'P2002') {
+            return res.status(400).json({
+                error: "Email already in use"
+            });
+        }
+        return res.status(500).json({
+            error: "Error creating user(internal server error)"
         });
     }
 }

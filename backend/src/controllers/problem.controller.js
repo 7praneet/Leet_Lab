@@ -1,5 +1,5 @@
 import { db } from "../libs/db.js";
-import {getJudge0LanguageId, pollBatchResults, submitBatch} from "../libs/judge0.lib.js";
+import {getJudge0LanguageId, pollBatchResults, submitBatch} from "../libs/judge0.libs.js";
 
 export const createProblem = async (req, res) => {
   const {
@@ -189,7 +189,7 @@ export const deleteProblem = async (req, res) => {
   }
 };
 
-export const getAllProblemsSolvedByUser = async (req, res) => {
+export const getAllSolvedProblems = async (req, res) => {
   try {
     const problems = await db.problem.findMany({
       where:{

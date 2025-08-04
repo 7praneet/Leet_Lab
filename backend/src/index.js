@@ -10,6 +10,7 @@ import problemRoutes from "./routes/problem.routes.js";
 dotenv.config();
 
 const app = express();
+const JUDGE0_API_URL = process.env.JUDGE0_API_URL;
 
 
 app.use(express.json());
